@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>basic page</title>
+  <title>Django Blog!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
@@ -42,7 +42,16 @@
 	<!--Main body-->
 	<div class = "container-fluid">
 	<h1 >First Heading <br> <small>Secondary Heading</small></h1>
-	<p>Text goes here!</p>
+	
+
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+	
 		<hr>
 	<h1 id="section">Second Heading <br> <small>Secondary Heading</small></h1>
 	<p>Text goes here!</p>
