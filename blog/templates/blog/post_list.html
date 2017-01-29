@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html >
 <head>
+{% load staticfiles %}
   <meta charset="UTF-8">
   <title>Django Blog!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 
-      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="{% static 'blog/css/style.css'%}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,900" rel="stylesheet">
+
+      
+
 
   
 </head>
@@ -36,38 +41,22 @@
 </header>
 <body>
 	<div class = "jumbotron">
-		<h1>This is Our Website</h1>
-		<h2>a lot happens here</h2>
+		<h1>Django Blog</h1>
+		<h2>A Site Using Python's Django</h2>
 		</div>
 	<!--Main body-->
 	<div class = "container-fluid">
-	<h1 >First Heading <br> <small>Secondary Heading</small></h1>
 	
 
 {% for post in posts %}
     <div>
-        <p>published: {{ post.published_date }}</p>
         <h1><a href="">{{ post.title }}</a></h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+          <p>published: {{ post.published_date }}</p>
+        <p><blockquote>{{ post.text|linebreaksbr }}</blockquote></p>
     </div>
 {% endfor %}
 	
-		<hr>
-	<h1 id="section">Second Heading <br> <small>Secondary Heading</small></h1>
-	<p>Text goes here!</p>
-	<hr>
-	<h1 id="section">Third Heading <br> <small>Secondary Heading</small></h1>
-	<p>Text goes here!</p>
-	<hr>
-	<h1 id="section">Fourth Heading <br> <small>Secondary Heading</small></h1>
-	<p>Text goes here!</p>
-	<hr>
-	<h1 id="section">Fifth Heading <br> <small>Secondary Heading</small></h1>
-	<p>Text goes here!</p>
-	<hr>
-	<h1 id="section">Sixth Heading <br> <small>Secondary Heading</small></h1>
-	<p>Text goes here!</p>
-	<hr>
+	
 	</div>
 </body>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
