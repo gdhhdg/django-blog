@@ -1,0 +1,16 @@
+hr {border-width: 3px}
+h1 {padding-top: 55px;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+		}
+ {background:gray}
+.center{text-align: center}
+small {text-align: center}
+h2 {text-align: center}
+.jumbotron {background-color: #0F1628;
+						color: #F6F6F6;
+						
+						}
+p {font-family: 'Source Sans Pro', sans-serif;
+}						
+
