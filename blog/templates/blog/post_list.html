@@ -1,70 +1,13 @@
-<!DOCTYPE html>
-<html >
-<head>
-{% load staticfiles %}
-  <meta charset="UTF-8">
-  <title>Django Blog!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 
-      <link rel="stylesheet" href="{% static 'blog/css/style.css'%}">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,900|Source+Sans+Pro" rel="stylesheet">
-      
-
-
-  
-</head>
-
-<body>
-  <header data-spy="scroll" data-target=".navbar" data-offset="10">	
-	
-	<!--Fixed Scrollspy Navbar-->
-	<nav class="navbar navbar-inverse navbar-fixed-top" data-spy="affix" data-offset-top="197">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 3</a></li>
-    </ul>
-		<ul class = "nav nav-navbar navbar-right">
-			<li><a href="#">Login</a></li>
-		</ul>
-  </div>
-		
-</nav>
-</header>
-<body>
-	<div class = "jumbotron">
-		<h1>Django Blog</h1>
-		<h2>A Site Using Python's Django</h2>
-		</div>
-	<!--Main body-->
-	<div class = "container-fluid">
-	
-
+	{% extends 'blog/base.html' %}
+{% block content %}
 {% for post in posts %}
-    <div>
-        <h1><a href="">{{ post.title }}</a></h1>
+    <div class="post">
+        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
           <p>published: {{ post.published_date }}</p>
         <p><blockquote>{{ post.text|linebreaksbr }}</blockquote></p>
     </div>
 {% endfor %}
+	{% endblock %}
 	
 	
-	</div>
-</body>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-
-    <script src="{% static 'blog/css/style.css' %}"></script>
-    <script type="text/javascript" src="{% static 'js/index.js' %}">
-
-</body>
-</html>
